@@ -12,7 +12,7 @@ var Conn *pgx.Conn
 
 func DatabaseConnect() {
 
-	databaseUrl := "postgres://postgres:1234@localhost:5432/openai"
+	databaseUrl := os.Getenv("DATABASE_URL")
 
 	var err error
 	Conn, err = pgx.Connect(context.Background(), databaseUrl)
