@@ -42,10 +42,13 @@ type Message struct {
 }
 
 func openaiChat(c echo.Context) error {
+	role := c.QueryParam("role")
+	content := c.QueryParam("content")
+
 	messages := []Message{
 		{
-			Role:    "user",
-			Content: "who kill adolf hitler?",
+			Role:    role,
+			Content: content,
 		},
 	}
 
