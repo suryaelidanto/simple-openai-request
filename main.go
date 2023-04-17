@@ -31,9 +31,11 @@ func main() {
 	// Routing
 	e.GET("/openai", openaiChat)
 
+	port := os.Getenv("PORT")
+
 	// Start server
-	println("Server running on port 5000")
-	e.Logger.Fatal(e.Start("localhost:5000"))
+	println("Server running on port " + port)
+	e.Logger.Fatal(e.Start(":" + port))
 }
 
 type Message struct {
